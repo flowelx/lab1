@@ -7,6 +7,7 @@ async function load_comic(){
     personal_params.append("id", personal_code);
     let comic_json = await (await fetch("https://fwd.innopolis.university/api/comic?" + personal_params)).json();
     document.querySelector("main h1").textContent = comic_json.safe_title;
+    document.querySelector("main p").textContent = comic_json.alt;
     let date = new Date(comic_json.year, comic_json.month, comic_json.day);
     document.querySelector("main div h3").textContent = date.toLocaleDateString();
     document.querySelector("main div img").alt = comic_json.alt;
